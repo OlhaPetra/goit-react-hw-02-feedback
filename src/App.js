@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Section from './components/Section';
 import Statistics from './components/Statistics';
-import Feedback from './components/Feedback';
+import FeedbackOptions from './components/FeedbackOptions';
 import Notification from './components/Notification';
 
 class App extends Component {
@@ -37,7 +37,10 @@ class App extends Component {
     return (
       <div>
         <Section title="Please leave feedback">
-          <Feedback onClickBtn={this.incrFeedback} />
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onClickBtn={this.incrFeedback}
+          />
           <Notification
             message="No feedback given"
             totalFeedback={this.countTotalFeedback()}

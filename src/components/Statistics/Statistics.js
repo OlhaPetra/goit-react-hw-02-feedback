@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import s from './Statistics.module.css';
 
 function Statistics({
@@ -14,9 +15,9 @@ function Statistics({
         <div className={s.statistics}>
           <h1 className={s.title}>Statistics</h1>
           <div className={s.statistics_data}>
-            <p className={`${s.text} ${s.good}`}>Good: {good}</p>
-            <p className={`${s.text} ${s.neutral}`}>Neutral: {neutral}</p>
-            <p className={`${s.text} ${s.bad}`}>Bad: {bad}</p>
+            <p className={s.text}>Good: {good}</p>
+            <p className={s.text}>Neutral: {neutral}</p>
+            <p className={s.text}>Bad: {bad}</p>
           </div>
           <div className={s.analitics}>
             <p className={s.analitics_text}>Total: {totalFeedback}</p>
@@ -30,5 +31,13 @@ function Statistics({
     </>
   );
 }
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  totalFeedback: PropTypes.number.isRequired,
+  positiveFeedbackPercentage: PropTypes.number.isRequired,
+};
 
 export default Statistics;
