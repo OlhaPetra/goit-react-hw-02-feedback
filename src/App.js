@@ -11,26 +11,11 @@ class App extends Component {
     bad: 0,
   };
 
-  incrGoodFeedback = () => {
+  incrFeedback = e => {
+    const grade = e.currentTarget.name;
     this.setState(prevState => {
       return {
-        good: prevState.good + 1,
-      };
-    });
-  };
-
-  incrNeutralFeedback = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-
-  incrBadFeedback = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
+        [grade]: prevState[grade] + 1,
       };
     });
   };
@@ -52,11 +37,7 @@ class App extends Component {
     return (
       <div>
         <Section title="Please leave feedback">
-          <Feedback
-            onClickGood={this.incrGoodFeedback}
-            onClickNeutral={this.incrNeutralFeedback}
-            onClickBad={this.incrBadFeedback}
-          />
+          <Feedback onClickBtn={this.incrFeedback} />
           <Notification
             message="No feedback given"
             totalFeedback={this.countTotalFeedback()}

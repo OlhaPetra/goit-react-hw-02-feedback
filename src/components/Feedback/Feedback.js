@@ -1,27 +1,30 @@
 import React from 'react';
 import s from './Feedback.module.css';
 
-function Feedback({ onClickGood, onClickNeutral, onClickBad }) {
+function Feedback({ onClickBtn }) {
   return (
     <div className={s.feedback}>
       <button
         className={`${s.button} ${s.good}`}
         type="button"
-        onClick={onClickGood}
+        name="good"
+        onClick={onClickBtn}
       >
         Good
       </button>
       <button
         className={`${s.button} ${s.neutral}`}
         type="button"
-        onClick={onClickNeutral}
+        name="neutral"
+        onClick={onClickBtn}
       >
         Neutral
       </button>
       <button
         className={`${s.button} ${s.bad}`}
         type="button"
-        onClick={onClickBad}
+        name="bad"
+        onClick={onClickBtn}
       >
         Bad
       </button>
