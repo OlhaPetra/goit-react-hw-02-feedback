@@ -41,10 +41,9 @@ class App extends Component {
             options={Object.keys(this.state)}
             onClickBtn={this.incrFeedback}
           />
-          <Notification
-            message="No feedback given"
-            totalFeedback={this.countTotalFeedback()}
-          />
+          {this.countTotalFeedback() === 0 && (
+            <Notification message="No feedback given" />
+          )}
           <Statistics
             good={good}
             neutral={neutral}
